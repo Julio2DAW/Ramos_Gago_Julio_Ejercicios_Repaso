@@ -1,15 +1,5 @@
 <?php
 
-    echo '<h1>Dias de la Semana</h1>';
-    echo '<h4>Practicar el count()</h4>';
-
-    $semana = array("lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo");
-
-    foreach ($semana as $nombre_dia => $num_dia) {
-        echo '<br> El dia de la semana es '.$nombre_dia.' '.$num_dia;
-    }
-
-
     echo '<h1>Meses del año</h1>';
     echo '<h4>Array asociativo</h4>';
 
