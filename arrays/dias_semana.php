@@ -8,5 +8,8 @@
     foreach ($semana as $num_dia => $nombre_dia) {
         echo '<br>Los dias de la semana son: ';
         echo $nombre_dia;
-    }
+    };
+
+    echo '<br>';
+    print_r(array_count_values($semana))
 ?>
