@@ -48,7 +48,9 @@
     </body>
 </html>
 <?php
-     if(isset($_POST['boton'])){
+    
+    //isset->Determina si una variable está definida y no es null
+    if(isset($_POST['boton'])){
 
         echo $_POST["categoria"];
         echo "<br>";
