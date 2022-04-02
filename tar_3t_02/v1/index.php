@@ -21,6 +21,10 @@
                 </select>
             </div>
             <div>
+                <label>Nombre Actividad: </label>
+                <input type="text" name="nombre_actividad" required />
+            </div>
+            <div>
                 <label for="">Etapas</label>
                 <div for="">
                     <input type="checkbox" name=etapas[] value=primaria /> Primaria
@@ -39,7 +43,7 @@
                 </div>
             </div>
             <div>
-                <input type="radio" name="actividad" /> Actividad de Sección
+                <input type="radio" name="actividad_seccion" /> Actividad de Sección
             </div>
             <div>
                 <input value="Enviar" type="submit" name="boton" />
@@ -49,6 +53,7 @@
 </html>
 <?php
     
+    /*
     //isset->Determina si una variable está definida y no es null
     if(isset($_POST['boton'])){
 
@@ -59,12 +64,44 @@
             print_r($_POST["etapas"]); /* 
             Uso print_r para que me muestre los valores de la array,
             si fuese un array asociativo utilizaría foreach
-            */
+            
         }
         echo "<br>";
         if(isset($_POST["actividad"])){
 
             echo $_POST["actividad"];
+        }
+    }
+    */
+
+    //Si pulsas el botón enviar haces lo siguiente:
+    if(isset($_POST['boton'])) {
+
+        echo '<p>Has dado de alta a la siguiente actividad</p>';
+        //Coge la categoría seleccionada en el select.
+        echo 'Categoría: '.$_POST['categoria'].'<br>';
+        //Coge el nombre de la actividad introducida por teclado.
+        echo 'Nombre de la Actividad: '.$_POST['nombre_actividad'];
+
+        //Si selecciona al menos una etapa:
+        if(isset($_POST['etapas'])) {
+
+            //Recorre el array de las etapas y muestra las seleccionadas.
+            echo '<br>Has seleccionado las siguientes etapas:';
+            foreach ($_POST['etapas'] as $valor) {
+                
+                echo ' '.$valor;
+            }
+        }
+
+        //Si se selecciona la opción de actividad de sección aparecerá
+        //un mensaje si no otro.
+        if (isset($_POST['actividad_seccion'])) {
+            
+            echo '<br>Has seleccionado la para una clase';
+        } else {
+
+            echo '<br>La actividad es para los alumnos';
         }
     }
 ?>
