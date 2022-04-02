@@ -1,8 +1,6 @@
 <?php
 
-    //Hacer que el índice sea los meses del año y el valor sea los dias que tienen estos.
-    echo '<h1>Meses del año</h1>';
-    echo '<h4>Array asociativo</h4>';
+    echo '<h1>Meses del año con "foreach"</h1>';
 
     //Meses del año y sus dias
     $meses = array(
@@ -21,9 +19,24 @@
         'diciembre' => '31'
     );
 
-    //Foreach para recorrer array asociativo.
+    /**
+     *  Con el foreach recorro el array $meses y muestro los datos con
+     *  un echo en el foreach. En este caso muestro el índice y el valor.
+     */
+    echo '<h2>Foreach con Índice y Valor</h2>';
     foreach ($meses as $mes => $dias) {
 
-        echo '<br>El mes de '.$mes.' tiene '.$dias.' dias.';
+        echo '<br>El mes de '.$mes.' tiene => '.$dias.' dias.';
     }
+
+    /**
+     *  Con el foreach recorro el array $meses y muestro los datos con
+     *  un echo en el foreach. En este caso muestro solo el valor.
+     */
+    echo '<h2>Foreach con solo Valor</h2>';
+    foreach ($meses as $mes => $dias) {
+
+        echo '<br> El valor es => '.$dias;
+    }
+
 ?>
