@@ -85,6 +85,9 @@
                 
                 echo ' '.$valor;
             }
+        } else {
+
+            echo 'No has seleccionado ninguna etapa';
         }
 
         /*

@@ -1,53 +1,62 @@
 <?php
-    
-    /*
-        Si existe enviar['boton'], agrego un array llamado "alta_actividades",
-        que recoge los datos rellenados del formulario por el método $_POST.
-    */
-    if (isset($_POST["boton"])) {
 
-        foreach ($_POST as $campo=>$valor) {
-
-            $formulario["$campo"]=$valor;
-        }
-    }
-
-    //Recorro el array del formulario y muestro los valores de los elementos.
-    if (isset($formulario['boton'])) {
+    //Si pulso el botón enviar se realizará las siguientes acciones.
+    if (isset($_POST['boton'])) {
         
-        //Elimino el campo botón para que no se muestre.
-        unset($formulario["boton"]);
-        foreach ($formulario as $campo=>$valor) {
+        /*
+            Creo el array llamado $alta_formulario.
+            Categoría es el índice.
+            Con el método POST cojo el valor de categoria y añado la categoría a la array.
+        */
+        $alta_formulario['Categoría'] = $_POST['categoria'];
 
-            /*
-                Compruebo que el campo 'nombre_actividad' no esté vacío, si está mando un mensaje de advertencia
-                diciendo que ese campo debe rellenarse.
-            */
-            if (empty($formulario["nombre_actividad"]) && $formulario["nombre_actividad"]==$formulario["$campo"]) {
 
-                echo "<p>No has rellenado el nombre de la actividad</p>";
-            } else {
+        /*
+            Compruebo que el campo 'nombre_actividad' no está vacío, en este caso lo añado a la array.
+            Actividad es el índice.
+            En el caso de estar vacío mando un mensaje de advertencia.
+        */
+        if (empty($_POST['nombre_actividad'])) {
+
+            echo '<p>Debes de poner un nombre a la actividad</p>';
+        } else {
+            
+            $alta_formulario['Actividad'] = $_POST['nombre_actividad'];
+        }
+
+        /*
+            Compruebo que haya una etapa al menos seleccionada 'etapas.
+            Utilizo un foreach para recorrer el array de etapas[] y muestro las que ha seleccionado.
+            En caso de haber seleccionado ninguna, muestro un mensaje por pantalla.
+        */
+        if(isset($_POST['etapas'])) {
+
+            foreach ($_POST['etapas'] as $valor) {
                 
-                //Compruebo que existe el campo 'etapas' y si existe muestro los datos seleccionados.
-                if (isset($formulario["etapas"]) && $formulario["etapas"]==$formulario["$campo"]) {
-
-                    foreach ($formulario["etapas"] as $valor) {
-
-                        echo "$valor <br>";
-                    }
-                } else {
-
-                    //Compruebo que existe actividad_seccion y si está seleccionada mando el nombre actividad_seccion.
-                    if (isset($formulario["actividad_seccion"]) && $formulario["actividad_seccion"]==$formulario["$campo"]) {
-                        
-                        echo "actividad_seccion <br>";
-                    } else {
-
-                        //Si no se cumple lo anterior muestro el campo y su valor.
-                        echo "$campo: $valor<br>";
-                    }
-                }
+                $alta_formulario[] = $valor;
             }
+        } else {
+
+            echo '<p>No has seleccionado ninguna etapa</p>';
+        }
+
+        /*
+            Compruebo que el radio 'actividad_seccion' está seleccionado mando a la array que está seleccionado.
+            En el caso de no estar seleccionado agrego al array un mensaje.
+            Seccion es el índice.
+        */
+        if(isset($_POST['actividad_seccion'])) {
+
+            $alta_formulario['Seccion'] = $_POST['actividad_seccion'];
+        } else {
+
+            $alta_formulario['Seccion'] = 'La actividad es para los alumnos';
+        }
+
+        //Recorro el array del formulario y muestro el valor de cada elemento.
+        foreach ($alta_formulario as $valor) {
+            
+            echo "$valor<br>";
         }
     }
 ?>
