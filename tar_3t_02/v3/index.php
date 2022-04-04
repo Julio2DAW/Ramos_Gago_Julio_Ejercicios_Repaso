@@ -70,6 +70,6 @@
         /*
             Utilizo la función visualizarDatos() para mostrar los datos del array $alta_formulario.
         */
-        $formulario -> visualizarDatos($array);
+        $formulario -> visualizarDatos($alta_actividades);
     }
 ?>
