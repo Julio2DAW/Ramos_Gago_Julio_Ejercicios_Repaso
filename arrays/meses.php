@@ -22,6 +22,8 @@
     /**
      *  Con el foreach recorro el array $meses y muestro los datos.
      *  En este caso muestro el índice y el valor.
+     *  Índice $mes.
+     *  Valor $dias.
      */
     echo '<h2>Foreach con Índice y Valor</h2>';
     foreach ($meses as $mes => $dias) {
@@ -32,9 +34,10 @@
     /**
      *  Con el foreach recorro el array $meses y muestro los datos.
      *  En este caso muestro solo el valor.
+     *  Valor $dias.
      */
     echo '<h2>Foreach con solo Valor</h2>';
-    foreach ($meses as $mes => $dias) {
+    foreach ($meses as $dias) {
 
         echo '<br> El valor es => '.$dias;
     }
