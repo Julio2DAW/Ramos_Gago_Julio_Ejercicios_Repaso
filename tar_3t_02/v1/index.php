@@ -22,7 +22,7 @@
             </div>
             <div>
                 <label>Nombre Actividad: </label>
-                <input type="text" name="nombre_actividad" required />
+                <input type="text" name="nombre_actividad" />
             </div>
             <div>
                 <label for="">Etapas</label>
@@ -54,16 +54,28 @@
 <?php
     
 
-    //isset->Determina si una variable está definida y no es null
+    //isset => Determina si una variable está definida y no es null.
     //Si pulsas el botón enviar haces lo siguiente:
     if(isset($_POST['boton'])) {
 
+        //Mensaje que le muestro al usuario.
         echo '<p>Has dado de alta a la siguiente actividad</p>';
-        //Coge la categoría seleccionada en el select.
-        echo 'Categoría: '.$_POST['categoria'].'<br>';
-        //Coge el nombre de la actividad introducida por teclado.
-        echo 'Nombre de la Actividad: '.$_POST['nombre_actividad'];
 
+        //Coge la categoría seleccionada en el select y la muestra.
+        echo 'Categoría: '.$_POST['categoria'].'<br>';
+
+        //empty => Determinar si una variable está vacía.
+        //Coge el nombre de la actividad introducida por teclado y la muestra, siempre que este campo no este vacio.
+        if (empty($_POST['nombre_actividad'])) {
+            
+            //Mensaje de aviso al usuario.
+            echo 'Debes de poner un nombre a la actividad';
+        } else {
+            
+            //Muestro el nombre de la actividad.
+            echo 'Nombre Actividad: '.$_POST['nombre_actividad'].'<br>';
+        }
+        
         //Si selecciona al menos una etapa:
         if(isset($_POST['etapas'])) {
 
@@ -75,8 +87,10 @@
             }
         }
 
-        //Si se selecciona la opción de actividad de sección aparecerá
-        //un mensaje si no otro.
+        /*
+            Si se selecciona la actividad_seccion aparecerá un mensaje de información,
+            en el caso de no seleccionarse, aparecerá otro.
+        */
         if (isset($_POST['actividad_seccion'])) {
             
             echo '<br>Has seleccionado la para una clase';
