@@ -53,27 +53,8 @@
 </html>
 <?php
     
-    /*
+
     //isset->Determina si una variable está definida y no es null
-    if(isset($_POST['boton'])){
-
-        echo $_POST["categoria"];
-        echo "<br>";
-        if(isset($_POST["etapas"])){
-
-            print_r($_POST["etapas"]); /* 
-            Uso print_r para que me muestre los valores de la array,
-            si fuese un array asociativo utilizaría foreach
-            
-        }
-        echo "<br>";
-        if(isset($_POST["actividad"])){
-
-            echo $_POST["actividad"];
-        }
-    }
-    */
-
     //Si pulsas el botón enviar haces lo siguiente:
     if(isset($_POST['boton'])) {
 
@@ -86,7 +67,7 @@
         //Si selecciona al menos una etapa:
         if(isset($_POST['etapas'])) {
 
-            //Recorre el array de las etapas y muestra las seleccionadas.
+            //Recorre el array de las etapas con un foreach y muestra las seleccionadas.
             echo '<br>Has seleccionado las siguientes etapas:';
             foreach ($_POST['etapas'] as $valor) {
                 
