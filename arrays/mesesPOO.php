@@ -28,7 +28,7 @@
 
             foreach ($this->dias_meses as $mes => $dias) {
 
-                echo '<br>El mes de '.$this->dias_meses.' tiene => '.$dias.' dias.';
+                echo '<br>El mes de '.$mes.' tiene '.$dias.' dias.';
             }
         }
     }
