@@ -4,10 +4,13 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Ejercicio Opcional POO</title>
+        <title>Pruebas POO</title>
     </head>
     <body>
-        
+        <p>
+            <strong>Prueba 3 Sin Return: </strong>Llamamos a los métodos crear_array desde el archivo
+            externo y desde este mismo archivo mostramos el array (NO usamos el método visualizar).
+        </p>
         <h1>Esto son los meses del año y la cantidad de días que tiene cada uno</h1>
     </body>
 </html>
