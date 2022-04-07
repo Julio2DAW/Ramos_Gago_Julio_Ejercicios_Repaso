@@ -34,8 +34,6 @@
                 'noviembre' => '30',
                 'diciembre' => '31'
             );
-
-            return $this->dias_meses;
         }
     }
 ?>
