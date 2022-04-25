@@ -1,7 +1,10 @@
 <?php
+    
     /**
-     * utilizar errno
-     * utilizar affected rows
+     * @file controlador.php
+     * Archivo del controlador.
+     * @author Julio Antonio Ramos Gago (jramosgago.guadalupe@alumnado.fundacionloyola.net)
+     * @license GPLv3 2021.
      */
     class Controlador{
 
