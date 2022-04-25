@@ -25,7 +25,5 @@
             /*Ejecuto la consulta*/
             $this->conexion->query($sql);
             
-            echo $this->conexion->affected_rows;
-            
         }
     }

@@ -42,5 +42,20 @@
 
             /*Llamo a la función alta_minijuegos de la clase modelo para ejecutar la consulta*/
             $this->modelo->alta_minijuegos();
+
+            /*Compruebo el número de filas afectadas*/
+            if($this->modelo->conexion->affected_rows>0){
+
+                return "Hay ".$this->modelo->conexion->affected_rows." filas afectadas.";
+            }else{
+
+                /**
+                 * Compruebo que los nombres no se repitan.
+                 * En caso de repetirse mando un mensaje.
+                 */
+                if($this->modelo->conexion->errno==1062){
+                    return "El nombre ya existe";
+                }
+            }
         }
     }
