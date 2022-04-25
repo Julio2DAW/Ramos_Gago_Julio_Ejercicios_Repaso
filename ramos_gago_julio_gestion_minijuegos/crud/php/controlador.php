@@ -46,7 +46,7 @@
             /*Compruebo el número de filas afectadas*/
             if($this->modelo->conexion->affected_rows>0){
 
-                return "Hay ".$this->modelo->conexion->affected_rows." filas afectadas.";
+                return $this->modelo->conexion->affected_rows." filas afectadas.";
             }else{
 
                 /**
