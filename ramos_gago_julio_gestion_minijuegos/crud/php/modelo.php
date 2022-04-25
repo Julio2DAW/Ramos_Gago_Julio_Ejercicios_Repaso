@@ -1,9 +1,15 @@
 <?php
 
+    /**
+     * @file modelo.php
+     * Archivo del modelo.
+     * @author Julio Antonio Ramos Gago (jramosgago.guadalupe@alumnado.fundacionloyola.net)
+     * @license GPLv3 2021.
+     */
     class Modelo{
 
         public $conexion;
-        
+
         function __construct(){
 
             require_once 'config_db.php';
@@ -18,5 +24,8 @@
 
             /*Ejecuto la consulta*/
             $this->conexion->query($sql);
+            
+            echo $this->conexion->affected_rows;
+            
         }
     }
