@@ -1,4 +1,8 @@
 <?php
+    /**
+     * utilizar errno
+     * utilizar affected rows
+     */
     class Controlador{
 
         public $modelo;
@@ -19,7 +23,7 @@
              * Compruebo que el elemento input text de nombre del formulario no esté en blanco.
              * Si lo está retorno un mensaje de advertencia.
              */
-            if($_POST['nombre']==''){
+            if(empty($_POST['nombre'])) {
 
                 return "Debes de poner un nombre al minijuego";
             }
@@ -28,13 +32,13 @@
              * Compruebo que el elemento input text de ruta del formulario no esté en blanco.
              * Si lo está retorno un mensaje de advertencia.
              */
-            if ($_POST['ruta']=='') {
+            if (empty($_POST['nombre'])) {
                 
                 return "Debes de indicar la ruta del minijuego";
             }
 
             /*Llamo a la función alta_minijuegos de la clase modelo para ejecutar la consulta*/
             $this->modelo->alta_minijuegos();
-            
+
         }
     }

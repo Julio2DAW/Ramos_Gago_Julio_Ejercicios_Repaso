@@ -3,6 +3,7 @@
     class Modelo{
 
         public $conexion;
+        
         function __construct(){
 
             require_once 'config_db.php';
