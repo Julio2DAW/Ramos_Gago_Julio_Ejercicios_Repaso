@@ -42,4 +42,5 @@
         $resultado = $controlador->comprobarAlta();
 
         echo $resultado;
+        echo '<br>'.phpversion();
     }

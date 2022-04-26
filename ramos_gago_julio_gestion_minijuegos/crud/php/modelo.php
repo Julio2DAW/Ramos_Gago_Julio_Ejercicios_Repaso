@@ -17,13 +17,13 @@
             $this->conexion = new mysqli(HOSTNAME, USERNAME, PASSWORD, DATABASE);
         }
 
-        function alta_minijuegos(){
+        function alta_minijuegos($icono) {
 
             /*Consulta sql para dar de alta al minijuego*/
-            $sql = "INSERT INTO minijuego (nombre, icono, ruta) VALUES ('".$_POST['nombre']."','".$_POST['icono']."','".$_POST['ruta']."');";
+            $sql = "INSERT INTO minijuego (nombre, icono, ruta) VALUES ('".$_POST['nombre']."',$icono,'".$_POST['ruta']."');";
 
             /*Ejecuto la consulta*/
-            $this->conexion->query($sql);
+            $this->conexion->query($sql) or die("error");
             
         }
     }

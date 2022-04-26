@@ -32,6 +32,18 @@
             }
 
             /**
+             * Compruebo que el elemento input text de icono del formulario esté en blanco.
+             * Si lo está guardo en la base de datos 'NULL'.
+             */
+            if(empty($_POST['icono'])){
+
+                $icono ='NULL';
+            }else {
+                
+                $icono = "'".$_POST['icono']."'";
+            }
+
+            /**
              * Compruebo que el elemento input text de ruta del formulario no esté en blanco.
              * Si lo está retorno un mensaje de advertencia.
              */
@@ -46,7 +58,7 @@
             /*Compruebo el número de filas afectadas*/
             if($this->modelo->conexion->affected_rows>0){
 
-                return $this->modelo->conexion->affected_rows." filas afectadas.";
+                return $this->modelo->conexion->affected_rows." fila afectada.";
             }else{
 
                 /**
@@ -54,6 +66,7 @@
                  * En caso de repetirse mando un mensaje.
                  */
                 if($this->modelo->conexion->errno==1062){
+
                     return "El nombre ya existe";
                 }
             }
