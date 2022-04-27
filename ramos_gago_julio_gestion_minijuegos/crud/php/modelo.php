@@ -30,4 +30,18 @@
             $this->conexion->query($sql);
             
         }
+
+        /**
+         * @function listar_minijuegos
+         * Función que realiza una consulta (select), para mostrar los datos de la tabla minijuegos.
+         */
+        function listar_minijuegos(){
+
+            /*Consuta sql para obtener los datos*/
+            $sql = "SELECT nombre, icono, ruta FROM minijuego";
+
+            
+            /*Ejecuto la consulta y la retorno*/
+            return $this->conexion->query($sql);
+        }
     }

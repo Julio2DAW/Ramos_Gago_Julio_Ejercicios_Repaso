@@ -22,6 +22,7 @@
          */
         function comprobarAlta(){
 
+            include_once 'alta.php';
             /**
              * Compruebo que el elemento input text de nombre del formulario no esté en blanco.
              * Si lo está retorno un mensaje de advertencia.
@@ -77,5 +78,11 @@
                     return "El nombre ya existe";
                 }
             }
+        }
+
+        function mostrar_minijuegos(){
+
+            /*Llamo a la función listar_minijuegos de la clase modelo para ejecutar la consulta y retorno el resultado a listar.php*/
+            return $this->modelo->listar_minijuegos();
         }
     }
