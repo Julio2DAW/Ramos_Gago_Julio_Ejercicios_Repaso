@@ -29,19 +29,23 @@
             if(empty($_POST['nombre'])) {
 
                 return "Debes de poner un nombre al minijuego";
+            }else {
+
+                $nombre="'".$_POST['nombre']."'";
             }
 
             /**
              * Compruebo que el elemento input text de icono del formulario esté en blanco.
              * Si lo está guardo en la base de datos 'NULL'.
              */
-            if(empty($_POST['icono'])){
+            if (empty($_POST['icono'])) {
 
-                $icono ='NULL';
+                $icono = 'NULL';
             }else {
-                
-                $icono = "'".$_POST['icono']."'";
+
+                $icono="'".$_POST['icono']."'";
             }
+
 
             /**
              * Compruebo que el elemento input text de ruta del formulario no esté en blanco.
@@ -50,10 +54,13 @@
             if (empty($_POST['ruta'])) {
                 
                 return "Debes de indicar la ruta del minijuego";
+            }else {
+
+                $ruta="'".$_POST['ruta']."'";
             }
 
-            /*Llamo a la función alta_minijuegos de la clase modelo para ejecutar la consulta*/
-            $this->modelo->alta_minijuegos();
+            /*Llamo a la función alta_minijuegos de la clase modelo para ejecutar la consulta y le paso los atributos*/
+            $this->modelo->alta_minijuegos($nombre, $icono, $ruta);
 
             /*Compruebo el número de filas afectadas*/
             if($this->modelo->conexion->affected_rows>0){
