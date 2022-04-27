@@ -18,10 +18,10 @@
         }
 
         /**
-         * @function alta_minijuegos
+         * @function altaMinijuegos
          * Función que realiza una consulta sql (insert), para introducir los datos del formulario a la base de datos.
          */
-        function alta_minijuegos($nombre, $icono, $ruta) {
+        function altaMinijuegos($nombre, $icono, $ruta) {
 
             /*Consulta sql para dar de alta al minijuego*/
             $sql = "INSERT INTO minijuego (nombre, icono, ruta) VALUES ($nombre, $icono, $ruta);";
@@ -32,16 +32,32 @@
         }
 
         /**
-         * @function listar_minijuegos
+         * @function listarMinijuegos
          * Función que realiza una consulta (select), para mostrar los datos de la tabla minijuegos.
          */
-        function listar_minijuegos(){
+        function listarMinijuegos(){
 
             /*Consuta sql para obtener los datos*/
-            $sql = "SELECT nombre, icono, ruta FROM minijuego";
+            $sql = "SELECT * FROM minijuego";
 
             
             /*Ejecuto la consulta y la retorno*/
             return $this->conexion->query($sql);
+        }
+
+        function consultarMinijuego($id){
+
+            $sql = "SELECT * FROM minijuego WHERE id=$id";
+            return $this->conexion->query($sql);
+        }
+        /**
+         * @function borrar_minijuegos
+         * Función que realiza una consulta (delete), para borrar el juego marcado.
+         */
+        function borrarMinijuegos($id){
+
+            /*Consulta sql para borrar los datos*/
+            $sql = "DELETE FROM minijuego WHERE id=$id";
+            $this->conexion->query($sql);
         }
     }

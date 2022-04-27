@@ -22,7 +22,6 @@
          */
         function comprobarAlta(){
 
-            include_once 'alta.php';
             /**
              * Compruebo que el elemento input text de nombre del formulario no esté en blanco.
              * Si lo está retorno un mensaje de advertencia.
@@ -60,8 +59,8 @@
                 $ruta="'".$_POST['ruta']."'";
             }
 
-            /*Llamo a la función alta_minijuegos de la clase modelo para ejecutar la consulta y le paso los atributos*/
-            $this->modelo->alta_minijuegos($nombre, $icono, $ruta);
+            /*Llamo a la función altaMinijuegos de la clase modelo para ejecutar la consulta y le paso los atributos*/
+            $this->modelo->altaMinijuegos($nombre, $icono, $ruta);
 
             /*Compruebo el número de filas afectadas*/
             if($this->modelo->conexion->affected_rows>0){
@@ -80,9 +79,42 @@
             }
         }
 
-        function mostrar_minijuegos(){
+        /**
+         * @function mostrarMinijuegos()
+         * Función para mostrar los minijuegos.
+         */
+        function mostrarMinijuegos(){
 
             /*Llamo a la función listar_minijuegos de la clase modelo para ejecutar la consulta y retorno el resultado a listar.php*/
-            return $this->modelo->listar_minijuegos();
+            return $this->modelo->listarMinijuegos();
+        }
+
+        function verMinijuego(){
+
+            if(isset($_GET['id'])) {
+
+                $id = $_GET['id'];
+                return $this->modelo->consultarMinijuego($id);
+            }else {
+
+                return 'Ha sucedido un problema';
+            }
+        }
+        /**
+         * @function eliminarMinijuegos()
+         * Función para mostrar los minijuegos.
+         */
+        function eliminarMinijuegos($id){
+
+            $this->modelo->borrarMinijuegos($id);
+
+            if($this->modelo->conexion->affected_rows > 0) {
+
+                return "Minijuego eliminado";
+            }else {
+
+                return "El minijuego no se pudo borrar";
+            }
+
         }
     }

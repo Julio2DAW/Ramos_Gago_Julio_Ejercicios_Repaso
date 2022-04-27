@@ -14,11 +14,14 @@
             require_once 'controlador.php';
 
             $controlador = new Controlador();
-            $resultado = $controlador->mostrar_minijuegos();
+            $resultado = $controlador->mostrarMinijuegos();
 
             while ($registro=$resultado->fetch_array()) {
                 
-                echo "<p>".$registro['nombre']." ".$registro['icono']." ".$registro['ruta']."</p>";
+                echo    "<p>"
+                            .$registro['nombre']." ".$registro['icono']." ".$registro['ruta'].
+                            "<a href='borrar.php?id=".$registro['id']."'>Borrar</a>
+                        </p>";
             }
         ?>
         <p><a href="../index.html">Volver</a></p>
