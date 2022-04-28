@@ -37,12 +37,15 @@
             
         $resultado = $controlador->eliminarMinijuegos($id);
         echo $resultado;
-        echo "<p><a href='../index.html'>Volver</a></p>";
+        //Redireccionar a la vista listar.php a los dos segundos, para que al usuario le de tiempo
+        //a poder ver que le ha saltado por pantalla el mensaje de confirmación de que ese minijuego ha sido borrado.
+        header("refresh:2; url=listar.php");
         
     }else {
 
         if (isset($_POST['cancelar'])) {
 
-            header("Location: ../index.html");
+            //Redireccionar a la vista listar.php a los 0,5 segundos, ya que el usuario no ha querido eliminar el minijuego.
+            header ("refresh:0.5; url=listar.php");
         }
     }
