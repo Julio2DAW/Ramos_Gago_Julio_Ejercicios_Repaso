@@ -51,13 +51,24 @@
             return $this->conexion->query($sql);
         }
         /**
-         * @function borrar_minijuegos
+         * @function borrarMinijuegos
          * Función que realiza una consulta (delete), para borrar el juego marcado.
          */
         function borrarMinijuegos($id){
 
             /*Consulta sql para borrar los datos*/
             $sql = "DELETE FROM minijuego WHERE id=$id";
+            $this->conexion->query($sql);
+        }
+
+        /**
+         * @function modificarMinijuegos
+         * Función que realiza una consulta (update), para actualizar el juego marcado.
+         */
+        function modificarMinijuegos($id, $nombre, $icono, $ruta) {
+
+            /*Consulta sql para modificar los datos*/
+            $sql = "UPDATE minijuego SET nombre=$nombre,icono=$icono,ruta=$ruta WHERE id=$id";
             $this->conexion->query($sql);
         }
     }

@@ -5,11 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="author" content="Julio Antonio Ramos Gago ()jramosgago.guadalupe@alumnado.fundacionloyola.net" />
-        <title>Borrar Minijuego</title>
+        <title>Modificar Minijuego</title>
     </head>
     <body>
-        <h1>Borrar Minijuego</h1>
-        
+        <h1>Modificar Minijuego</h1>
+    
         <?php
             require_once 'controlador.php';
 
@@ -19,26 +19,35 @@
             while ($registro=$resultado->fetch_array()) {
                 
                 echo    "<p>"
-                            .$registro['nombre']." ".$registro['icono']." ".$registro['ruta'].
+                            .$nombre = $registro['nombre']." ".$icono = $registro['icono']." ".$ruta = $registro['ruta'].
                         "</p>";
 
                 $id = $registro['id'];
             }
+
+            echo "
+                        <label>Minijuego: </label>
+                        <input type='text' value=$nombre><br />
+                        <label>Icono: </label>
+                        <input type='text' value=$icono><br />
+                        <label>Ruta: </label>
+                        <input type='text' value=$ruta><br />
+                    ";
         ?>
 
-        <p>¿Estás seguro de que deseas eliminar este minijuego?</p>
+        <p>¿Estás seguro de que deseas modificar este miniuego?</p>
 
         <form action="#" method="POST">
-            <input type="submit" value="Eliminar" name="eliminar" />
+            <input type="submit" value="Modificar" name="modificar" />
             <input type="submit" value="Cancelar" name="cancelar" />
         </form>
     </body>
 </html>
 <?php
 
-    if(isset($_POST['eliminar'])) {
+    if(isset($_POST['modificar'])) {
             
-        $resultado = $controlador->eliminarMinijuegos($id);
+        $resultado = $controlador->actualizarMinijuegos($id);
         echo $resultado;
         //Redireccionar a la vista listar.php a los dos segundos, para que al usuario le de tiempo
         //a poder ver que le ha saltado por pantalla el mensaje de confirmación de que ese minijuego ha sido borrado.

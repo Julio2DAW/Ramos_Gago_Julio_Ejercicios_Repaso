@@ -103,7 +103,7 @@
         }
         /**
          * @function eliminarMinijuegos()
-         * Función para mostrar los minijuegos.
+         * Función para eliminar los minijuegos.
          */
         function eliminarMinijuegos($id){
 
@@ -116,6 +116,69 @@
 
                 return "El minijuego no se pudo borrar";
             }
+        }
 
+        /**
+         * @function actualizarMinijuegos()
+         * Función para modificar los minijuegos.
+         */
+        function actualizarMinijuegos($id) {
+
+            /**
+             * Compruebo que el elemento input text de nombre del formulario no esté en blanco.
+             * Si lo está retorno un mensaje de advertencia.
+             */
+            if(empty($_POST['nombre'])) {
+
+                return "Debes de poner un nombre al minijuego";
+            }else {
+
+                $nombre="'".$_POST['nombre']."'";
+            }
+
+            /**
+             * Compruebo que el elemento input text de icono del formulario esté en blanco.
+             * Si lo está guardo en la base de datos 'NULL'.
+             */
+            if (empty($_POST['icono'])) {
+
+                $icono = 'NULL';
+            }else {
+
+                $icono="'".$_POST['icono']."'";
+            }
+
+
+            /**
+             * Compruebo que el elemento input text de ruta del formulario no esté en blanco.
+             * Si lo está retorno un mensaje de advertencia.
+             */
+            if (empty($_POST['ruta'])) {
+                
+                return "Debes de indicar la ruta del minijuego";
+            }else {
+
+                $ruta="'".$_POST['ruta']."'";
+            }
+
+            /*Llamo a la función altaMinijuegos de la clase modelo para ejecutar la consulta y le paso los atributos*/
+            $this->modelo->modificarMinijuegos($id, $nombre, $icono, $ruta);
+
+            /*Compruebo el número de filas afectadas*/
+            if($this->modelo->conexion->affected_rows>0){
+
+                //return $this->modelo->conexion->affected_rows." fila afectada.";
+                return "El minijuego se agregó correctamente.";
+            }else{
+
+                /**
+                 * Compruebo que los nombres no se repitan.
+                 * En caso de repetirse mando un mensaje.
+                 */
+                if($this->modelo->conexion->errno==1062){
+
+                    return "El nombre ya existe";
+                }
+            }
         }
     }

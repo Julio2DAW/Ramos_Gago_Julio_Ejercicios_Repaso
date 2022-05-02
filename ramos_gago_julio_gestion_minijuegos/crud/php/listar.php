@@ -20,7 +20,8 @@
                 
                 echo    "<p>"
                             .$registro['nombre']." ".$registro['icono']." ".$registro['ruta'].
-                            "<a href='borrar.php?id=".$registro['id']."'>Borrar</a>
+                            "[ <a href='borrar.php?id=".$registro['id']."'>Borrar</a> ||
+                             <a href='modificar.php?id=".$registro['id']."'>Modificar</a> ]
                         </p>";
             }
         ?>
