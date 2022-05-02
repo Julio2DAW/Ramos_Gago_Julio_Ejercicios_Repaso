@@ -18,20 +18,19 @@
 
             while ($registro=$resultado->fetch_array()) {
                 
-                echo    "<p>"
-                            .$nombre = $registro['nombre']." ".$icono = $registro['icono']." ".$ruta = $registro['ruta'].
-                        "</p>";
-
+                $nombre = $registro['nombre'];
+                $icono = $registro['icono'];
+                $ruta = $registro['ruta'];
                 $id = $registro['id'];
             }
 
             echo "
                         <label>Minijuego: </label>
-                        <input type='text' value=$nombre><br />
+                        <input type='text' value=$nombre name='nombre'><br />
                         <label>Icono: </label>
-                        <input type='text' value=$icono><br />
+                        <input type='text' value=$icono name='icono'><br />
                         <label>Ruta: </label>
-                        <input type='text' value=$ruta><br />
+                        <input type='text' value=$ruta name='ruta'><br />
                     ";
         ?>
 
@@ -51,7 +50,7 @@
         echo $resultado;
         //Redireccionar a la vista listar.php a los dos segundos, para que al usuario le de tiempo
         //a poder ver que le ha saltado por pantalla el mensaje de confirmación de que ese minijuego ha sido borrado.
-        header("refresh:2; url=listar.php");
+        //header("refresh:2; url=listar.php");
         
     }else {
 
