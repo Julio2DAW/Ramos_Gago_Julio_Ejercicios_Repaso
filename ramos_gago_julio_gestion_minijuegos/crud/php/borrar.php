@@ -9,6 +9,7 @@
     </head>
     <body>
         <h1>Borrar Minijuego</h1>
+        <p>¿Estás seguro de que desear realizar dicha operación?</p>
         <?php
             require_once 'controlador.php';
 

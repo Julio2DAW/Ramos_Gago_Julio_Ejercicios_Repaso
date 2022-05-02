@@ -65,7 +65,8 @@
             /*Compruebo el número de filas afectadas*/
             if($this->modelo->conexion->affected_rows>0){
 
-                return $this->modelo->conexion->affected_rows." fila afectada.";
+                //return $this->modelo->conexion->affected_rows." fila afectada.";
+                return "El minijuego se agregó correctamente.";
             }else{
 
                 /**
