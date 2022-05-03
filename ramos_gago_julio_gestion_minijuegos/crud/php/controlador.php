@@ -168,7 +168,7 @@
             if($this->modelo->conexion->affected_rows>0){
 
                 //return $this->modelo->conexion->affected_rows." fila afectada.";
-                return "El minijuego se agregó correctamente.";
+                return "El minijuego se modificó correctamente.";
             }else{
 
                 /**

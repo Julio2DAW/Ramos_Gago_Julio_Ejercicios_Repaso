@@ -9,34 +9,34 @@
     </head>
     <body>
         <h1>Modificar Minijuego</h1>
-    
-        <?php
-            require_once 'controlador.php';
-
-            $controlador = new Controlador();
-            $resultado = $controlador->verMinijuego();
-
-            while ($registro=$resultado->fetch_array()) {
-                
-                $nombre = $registro['nombre'];
-                $icono = $registro['icono'];
-                $ruta = $registro['ruta'];
-                $id = $registro['id'];
-            }
-
-            echo "
-                        <label>Minijuego: </label>
-                        <input type='text' value=$nombre name='nombre'><br />
-                        <label>Icono: </label>
-                        <input type='text' value=$icono name='icono'><br />
-                        <label>Ruta: </label>
-                        <input type='text' value=$ruta name='ruta'><br />
-                    ";
-        ?>
-
-        <p>¿Estás seguro de que deseas modificar este miniuego?</p>
 
         <form action="#" method="POST">
+            <?php
+                require_once 'controlador.php';
+
+                $controlador = new Controlador();
+                $resultado = $controlador->verMinijuego();
+
+                while ($registro=$resultado->fetch_array()) {
+                    
+                    $nombre = $registro['nombre'];
+                    $icono = $registro['icono'];
+                    $ruta = $registro['ruta'];
+                    $id = $registro['id'];
+                }
+
+                echo "
+                            <label>Minijuego: </label>
+                            <input type='text' value=$nombre name='nombre'><br />
+                            <label>Icono: </label>
+                            <input type='text' value=$icono name='icono'><br />
+                            <label>Ruta: </label>
+                            <input type='text' value=$ruta name='ruta'><br />
+                        ";
+            ?>
+
+            <p>¿Estás seguro de que deseas modificar este miniuego?</p>
+
             <input type="submit" value="Modificar" name="modificar" />
             <input type="submit" value="Cancelar" name="cancelar" />
         </form>
@@ -50,7 +50,7 @@
         echo $resultado;
         //Redireccionar a la vista listar.php a los dos segundos, para que al usuario le de tiempo
         //a poder ver que le ha saltado por pantalla el mensaje de confirmación de que ese minijuego ha sido borrado.
-        //header("refresh:2; url=listar.php");
+        header("refresh:2; url=listar.php");
         
     }else {
 
