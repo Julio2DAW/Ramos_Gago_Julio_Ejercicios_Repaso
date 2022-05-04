@@ -12,7 +12,7 @@
 
         <form action="#" method="POST">
             
-            <select name="select">
+            <select name="minijuego">
                 <?php
 
                     require_once 'controlador.php';
@@ -35,10 +35,21 @@
 
             if(isset($_POST['ver'])) {
 
-                echo 'Visto';
+                $controlador = new Controlador();
+                $resultado = $controlador->verMinijuego();
+    
+                while ($registro=$resultado->fetch_array()) {
+                    
+                    echo    "<p>"
+                                .$registro['nombre']." ".$registro['icono']." ".$registro['ruta'].
+                            "</p>";
+    
+                    $id = $registro['id'];
+                }
+                
             }else {
 
-                echo 'Pulsa el botón ver para obtener los datos del minijuego.';
+                echo 'No hay minijuego seleccionado.';
             }
         ?>
         <p><a href="../index.html">Volver</a></p>

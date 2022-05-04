@@ -90,6 +90,10 @@
             return $this->modelo->listarMinijuegos();
         }
 
+        /**
+         * @function verMinijuego()
+         * Función para ver el minijuego.
+         */
         function verMinijuego(){
 
             if(isset($_GET['id'])) {
@@ -101,6 +105,7 @@
                 return 'Ha sucedido un problema';
             }
         }
+
         /**
          * @function eliminarMinijuegos()
          * Función para eliminar los minijuegos.
