@@ -9,6 +9,7 @@
     </head>
     <body>
         <h1>Alta de Minijuegos</h1>
+        <!--Formulario-->
         <form action="#" method="POST">
             <div>
                 <label>Minijuego</label>
@@ -37,7 +38,10 @@
         require_once "controlador.php";
 
         $controlador = new Controlador();
+        /**
+         * Llamo a la función comprobarAlta() de la clase Controlador.
+         * Muestro el resultado con un 'echo'.
+         */
         $resultado = $controlador->comprobarAlta();
-
         echo $resultado;
     }

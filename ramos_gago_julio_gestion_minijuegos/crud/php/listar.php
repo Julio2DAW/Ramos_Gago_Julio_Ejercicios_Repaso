@@ -14,6 +14,10 @@
             require_once 'controlador.php';
 
             $controlador = new Controlador();
+            /**
+             * Llamo a la función mostrarMinijuegos() de la clase Controlador.
+             * Muestro dinámicamente los minijuegos con sus datos y los botones de borrar y modificar con un while.
+             */
             $resultado = $controlador->mostrarMinijuegos();
 
             while ($registro=$resultado->fetch_array()) {

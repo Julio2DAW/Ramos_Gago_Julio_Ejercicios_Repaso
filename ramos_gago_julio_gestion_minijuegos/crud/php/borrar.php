@@ -14,6 +14,10 @@
             require_once 'controlador.php';
 
             $controlador = new Controlador();
+            /**
+             * Llamo a la función verMinijuego() de la clase Controlador.
+             * Muestro el juego a borrar recorriendo el resultado con un fetch_array().
+             */
             $resultado = $controlador->verMinijuego();
 
             while ($registro=$resultado->fetch_array()) {

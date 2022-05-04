@@ -10,6 +10,9 @@
 
         public $modelo;
 
+        /**
+         * @function __construct()
+         */
         function __construct(){
             /*Llamo a la clase Modelo del archivo modelo.php*/
             require_once 'modelo.php';
@@ -91,6 +94,16 @@
         }
 
         /**
+         * @function minijuegosSelect()
+         * Función para mostrar el minijuego seleccionado
+         * Le paso por parámetro el id ($id)
+         */
+        function minijuegosSelect($id){
+
+            return $this->modelo->consultarMinijuego($id);
+        }
+        
+        /**
          * @function verMinijuego()
          * Función para ver el minijuego.
          */
@@ -109,6 +122,7 @@
         /**
          * @function eliminarMinijuegos()
          * Función para eliminar los minijuegos.
+         * Le paso por parámetro el id ($id)
          */
         function eliminarMinijuegos($id){
 
@@ -126,6 +140,7 @@
         /**
          * @function actualizarMinijuegos()
          * Función para modificar los minijuegos.
+         * Le paso por parámetro el id ($id)
          */
         function actualizarMinijuegos($id) {
 

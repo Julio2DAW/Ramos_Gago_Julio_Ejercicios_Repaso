@@ -15,6 +15,10 @@
                 require_once 'controlador.php';
 
                 $controlador = new Controlador();
+                /**
+                 * Llamo a la función verMinijuego() de la clase Controlador.
+                 * Creo un formulario de modificación y añado a los campos input los datos del minijuego.
+                 */
                 $resultado = $controlador->verMinijuego();
 
                 while ($registro=$resultado->fetch_array()) {
@@ -45,7 +49,11 @@
 <?php
 
     if(isset($_POST['modificar'])) {
-            
+        
+        /**
+         * Llamo a la función actualizarMinijuegos($id) de la clase Controlador.
+         * Muestro el resultado con un 'echo.
+         */
         $resultado = $controlador->actualizarMinijuegos($id);
         echo $resultado;
         //Redireccionar a la vista listar.php a los dos segundos, para que al usuario le de tiempo

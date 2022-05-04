@@ -12,17 +12,21 @@
 
         <form action="#" method="POST">
             
-            <select name="minijuego">
+            <select name="select">
                 <?php
 
                     require_once 'controlador.php';
 
                     $controlador = new Controlador();
+                    /**
+                     * Llamo a la función mostrarMinijuegos() de la clase Controlador.
+                     * Añado dinámicamente al select los nombres de los minijuegos con un while.
+                     */
                     $resultado = $controlador->mostrarMinijuegos();
                     
                     while ($registro=$resultado->fetch_array()) {
 
-                        echo " <option value=$registro[id]>".$registro['nombre']."</option>";
+                        echo " <option value=".$registro['id'].">".$registro['nombre']."</option>";
                     }
                 ?>
 
@@ -35,23 +39,25 @@
 
             if(isset($_POST['ver'])) {
 
-                $controlador = new Controlador();
-                $resultado = $controlador->verMinijuego();
+                /**
+                 * Llamo a la función minijuegosSelect() de la clase Controlador.
+                 * Le paso el select y muestro los datos del minijuego seleccionado.
+                 * Mientras que no se seleccione un minijuego aparecerá un mensaje de aviso.
+                 */
+                $resultado = $controlador->minijuegosSelect($_POST['select']);
     
                 while ($registro=$resultado->fetch_array()) {
                     
                     echo    "<p>"
                                 .$registro['nombre']." ".$registro['icono']." ".$registro['ruta'].
                             "</p>";
-    
-                    $id = $registro['id'];
-                }
-                
+                }   
             }else {
 
                 echo 'No hay minijuego seleccionado.';
             }
         ?>
+
         <p><a href="../index.html">Volver</a></p>
     </body>
 </html>

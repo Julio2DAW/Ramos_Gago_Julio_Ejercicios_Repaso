@@ -20,6 +20,9 @@
         /**
          * @function altaMinijuegos
          * Función que realiza una consulta sql (insert), para introducir los datos del formulario a la base de datos.
+         * Le paso por párametro el nombre del minijuego ($nombre)
+         * Le paso por párametro el icono del minijuego ($icono)
+         * Le paso por párametro el ruta del minijuego ($ruta)
          */
         function altaMinijuegos($nombre, $icono, $ruta) {
 
@@ -45,14 +48,21 @@
             return $this->conexion->query($sql);
         }
 
+        /**
+         * @function consultarMinijuego()
+         * Función que realiza una consulta (select), para sacar un minijuego en concreto
+         * Le paso por párametro el id del minijuego ($id)
+         */
         function consultarMinijuego($id){
 
             $sql = "SELECT * FROM minijuego WHERE id=$id";
             return $this->conexion->query($sql);
         }
+
         /**
          * @function borrarMinijuegos
          * Función que realiza una consulta (delete), para borrar el juego marcado.
+         * Le paso por párametro el id del minijuego ($id)
          */
         function borrarMinijuegos($id){
 
@@ -64,6 +74,10 @@
         /**
          * @function modificarMinijuegos
          * Función que realiza una consulta (update), para actualizar el juego marcado.
+         * Le paso por párametro el id del minijuego ($id)
+         * Le paso por párametro el nombre del minijuego ($nombre)
+         * Le paso por párametro el icono del minijuego ($icono)
+         * Le paso por párametro el ruta del minijuego ($ruta)
          */
         function modificarMinijuegos($id, $nombre, $icono, $ruta) {
 
