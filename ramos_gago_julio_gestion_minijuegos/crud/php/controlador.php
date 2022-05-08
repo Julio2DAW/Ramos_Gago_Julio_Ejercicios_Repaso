@@ -104,6 +104,30 @@
         }
         
         /**
+         * @function minijuegosCheck()
+         * Función para mostrar los minijuegos seleccionados con checkbox.
+         */
+        function minijuegosCheck(){
+
+            //Array para los minijuegos seleccionados.
+            $id = [];
+            $resultado = [];
+
+            //Meto los minijuegos en el array.
+            foreach($_POST as $nombre => $valor) {
+
+                $id[] = $valor;
+            }
+
+            //Recorro el array de los minijuegos y los muestro
+            foreach($id as $valor) {
+
+                $resultado[] = $this->modelo->consultarMinijuego($valor);
+            }
+
+            return $resultado;
+        }
+        /**
          * @function verMinijuego()
          * Función para ver el minijuego.
          */

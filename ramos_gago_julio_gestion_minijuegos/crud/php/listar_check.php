@@ -42,14 +42,15 @@
 
             if (isset($_POST['mostrar'])) {
                 
-                /*
-                $resultado = $controlador->minijuegosSelect($id);
+                $resultado = $controlador->minijuegosCheck();
 
-                while($registro=$resultado->fetch_array()) {
+                foreach($resultado as $valor) {
 
-                    echo "<p>".$registro['nombre']." ".$registro['icono']." ".$registro['ruta']."</p>";
+                    while($registro=$valor->fetch_array()) {
+
+                        echo "<p>".$registro['nombre']." ".$registro['icono']." ".$registro['ruta']."</p>";
+                    }
                 }
-                */
             }
         ?>
 
